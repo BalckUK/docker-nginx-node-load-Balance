@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  node1:
+    image: 'node-api-server'
+    build: .
+  node2:
+    image: 'node-api-server'
+    build: .
+  node3:
+    image: 'node-api-server'
+    build: .
+  loadbalancer:
+    image: nginx
+    volumes:
+      - "./config/nginx.conf:/etc/nginx/nginx.conf"
+    ports:
+      - '80:80'
